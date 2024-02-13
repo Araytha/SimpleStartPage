@@ -1,0 +1,15 @@
+@mixin flex($display, $justify, $direction) {
+  display: $display;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin paddedBox() {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+@mixin primaryBox {
+  background-color: $boxBackground;
+  box-shadow: 2px 3px rgba(255,255,255,0.03);
+}

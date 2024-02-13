@@ -1,0 +1,129 @@
+@import './mixins';
+@import './variables';
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+  font-family: 'VT323', monospace;
+  font-weight: 400;
+  color: $white;
+  margin-top: 200px;
+}
+
+p {
+  color: $link;
+  text-decoration: none;
+}
+
+input {
+  width: calc(100% - 20px);
+  // padding: 10px;
+  background-color: $boxBackground;
+  border: none;
+  margin-bottom: 15px !important;
+  // border: 1px solid rgba(255,255,255,0.1);
+  color: $white;
+  border-radius: 90px;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.background {
+  background-color: $main;
+  @include flex(flex, center, row);
+}
+
+.container {
+  @include flex(flex, center, row);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card {
+  @include flex(flex, center, column);
+  @include paddedBox();
+  background-color: $main;
+  box-shadow: -2px -3px rgba(0,0,0,0.25);
+  width: 6rem;
+  height: 6rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid:
+    "date links" 1fr
+    "other links" 1fr
+    "other links" 1fr
+    "other links" 1fr
+    / 247.5px 742.5px;
+  gap: 8px;
+  justify-content: center; 
+  align-content: center; 
+  max-width: 1410px;
+  
+  .date { 
+    grid-area: date; 
+    @include paddedBox();
+    @include flex(flex, center, column);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    @include primaryBox();
+  }
+  .other { 
+    grid-area: other; 
+    @include paddedBox();
+    @include flex(flex, flex-start,  column);
+    @include primaryBox();
+    p {
+      cursor: pointer;
+      margin: 0.2rem;
+    }
+  }
+  .links { 
+    grid-area: links; 
+    @include paddedBox();
+    @include primaryBox();
+  }
+}
+
+.tools {
+  display: none;
+  min-width: 822px;
+  padding: 1rem;
+}
+
+.image-container {
+  @include flex(flex, center, row);
+  min-width: 2rem;
+  min-height: 2rem;
+  .link-logo {
+    max-width: 2rem;
+    max-height: 2rem;
+    // filter: grayscale(100);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

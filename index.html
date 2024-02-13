@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/normalise.css">
+  <script src="https://kit.fontawesome.com/12af0d6bef.js" crossorigin="anonymous"></script>
+  <title>StartPage</title>
+</head>
+<body class="background">
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <a href="#" onclick="window.linksDialog.showModal();">
+      <i class="fa-solid fa-link"></i>
+    </a>
+    <a href="#" onclick="window.bookmarksDialog.showModal();">
+      <i class="fa-solid fa-bookmark"></i>
+    </a>
+    <a href="#">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <a href="#" onclick="window.helpDialog.showModal();">
+       <i class="fa-solid fa-question"></i>
+    </a>
+  </div>
+
+  <div class="grid-container">
+    <div id="date" class="date">
+      <!-- Date inserted by JS in date.js -->
+    </div>
+    <div id="linksColumn" class="other">
+      <form onsubmit="doSearch(this, event)">
+        <input type="text" name="q" id="searchValue" autofocus onfocus="this.value=''" placeholder="Search" autocomplete="off">
+      </form>
+    </div>
+    <div class="links">
+      <div id="containerOneWrapper">
+        <div id="containerOne" class="container">
+          <!-- Links inserted by JS -->
+        </div>
+      </div>
+      <div id="containerTwoWrapper" style="display: none;">
+        <div id="containerTwo" class="container">
+          <!-- Links inserted by JS -->
+        </div>
+      </div>
+      <div id="containerThreeWrapper" style="display: none;">
+        <div id="containerThree" class="container">
+          <!-- Links inserted by JS -->
+        </div>
+      </div>
+      <div id="containerFourWrapper" style="display: none;">
+        <div id="containerFour" class="container">
+          <!-- Links inserted by JS -->
+        </div>
+      </div>
+      <div id="containerFiveWrapper" style="display: none;">
+        <div id="containerFive" class="container">
+          <!-- Links inserted by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="linksDialog" class="dialogGeneralStyling">
+    <div class="dialogInnerWrapper">
+      <h3>Edit Links</h3>
+      <input type="text" name="linkOne" id="linkInput0" autocomplete="off" class="smallerInputs">
+      <input type="text" name="linkTwo" id="linkInput1" autocomplete="off" class="smallerInputs">
+      <input type="text" name="linkThree" id="linkInput2" autocomplete="off" class="smallerInputs">
+      <input type="text" name="linkFour" id="linkInput3" autocomplete="off" class="smallerInputs">
+      <input type="text" name="linkFive" id="linkInput4" autocomplete="off" class="smallerInputs">
+      <script>
+        function closeLinksDialog() {
+          window.linksDialog.close();
+          location.reload();
+        }
+      </script>
+      <button onclick="saveLinkValues();">Save Values</button>
+      <button onclick="closeLinksDialog();">Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="bookmarksDialog" class="dialogGeneralStyling">
+    <div class="dialogInnerWrapper">
+      <h3>Dialog to edit saved bookmarks</h3>
+      <label for="containerType">Choose localStorage to set:</label>
+      <select name="containerType" id="containerType">
+        <option value="containerOneLinks">containerOneLinks</option>
+        <option value="containerTwoLinks">containerTwoLinks</option>
+        <option value="containerThreeLinks">containerThreeLinks</option>
+        <option value="containerFourLinks">containerFourLinks</option>
+        <option value="containerFiveLinks">containerFiveLinks</option>
+      </select>
+      <input type="text" name="bookMarkInput" id="bookMarkInput" autocomplete="off" class="smallerInputs">
+      <script>
+        function closeBoomarksDialog() {
+          window.bookmarksDialog.close();
+          location.reload();
+        }
+      </script>
+      <button onclick="saveBookmarkValues();">Save Value</button>
+      <button onclick="closeBoomarksDialog();">Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="helpDialog" class="dialogGeneralStyling">
+    <div class="dialogInnerWrapper">
+      <h3>Information</h3>
+      <p>Search modifiers</p>
+      <ul>
+        <li>default - DuckDuckGo</li>
+        <ul>
+          <li>forEach in js</li>
+        </ul>
+        <li>g/google - Google</li>
+        <ul>
+          <li>g!translate EN to ES</li>
+          <li>google!forEach in js</li>
+        </ul>
+        <li>s/so - Stack Overflow</li>
+        <ul>
+          <li>s!forEach in js</li>
+          <li>so!forEach in js</li>
+        </ul>
+        <li>w - go to URL provided</li>
+        <ul>
+          <li>w!mail.google.com</li>
+          <li>w!spotify.com</li>
+        </ul>
+      </ul>
+      <button onclick="window.helpDialog.close();">close</button>
+    </div>
+  </dialog>
+</body>
+<script src="./scripts/lock.js"></script>
+<script src="./scripts/initial.js"></script>
+<script src="./scripts/date.js"></script>
+<script src="./scripts/divScript.js"></script>
+<script src="./scripts/doSearch.js"></script>
+</html>
