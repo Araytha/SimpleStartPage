@@ -1,16 +1,22 @@
-// localStorage.setItem('toolLinks', JSON.stringify(toolLinks));
+// Local storage for bookmark items
+// localStorage.setItem('containerOneLinks', JSON.stringify([
+//   {name: '', url: '', img: '', newTab: false},
+//   {name: '', url: '', img: '', newTab: true},
+//   ...
+// ]));
 
 let containerOneLinks = JSON.parse(localStorage.getItem('containerOneLinks'));
 let containerTwoLinks = JSON.parse(localStorage.getItem('containerTwoLinks'));
 let containerThreeLinks = JSON.parse(localStorage.getItem('containerThreeLinks'));
 let containerFourLinks = JSON.parse(localStorage.getItem('containerFourLinks'));
 let containerFiveLinks = JSON.parse(localStorage.getItem('containerFiveLinks'));
+
+// Local storage for Left Link titles
+// localStorage.setItem('linkTitles', JSON.stringify(['link one', 'link two', ...]));
 let linkTitles = JSON.parse(localStorage.getItem('linkTitles'));
 
 
-// const template = [
-//   {name: '', url: '', img: '', newTab: false},
-// ]
+
 
 const linksContainerOne = document.getElementById('containerOne');
 const linksContainerTwo = document.getElementById('containerTwo');
@@ -29,8 +35,6 @@ linkTitles.forEach((link, index) => {
 
 
 containerOneLinks.forEach(link => {
-
-
 
   // Main Element
   const item = document.createElement('div');

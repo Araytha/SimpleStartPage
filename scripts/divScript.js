@@ -1,3 +1,5 @@
+// Div switching handler
+
 
 const linksContainerOneW = document.getElementById('containerOneWrapper');
 const linksContainerTwoW = document.getElementById('containerTwoWrapper');

@@ -1,4 +1,4 @@
-
+// Search handler with modifiers for different services
 
 function doSearch(form, event) {
 
